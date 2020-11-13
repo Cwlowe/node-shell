@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-module.exports = (cmd) => {
+module.exports = (cmd,done) => {
   if (cmd.includes('cat')){
     let filePath = cmd.split(' ')[1];
     fs.readFile(filePath, 'utf8', (err, data) => {
@@ -8,8 +8,7 @@ module.exports = (cmd) => {
         console.error(err);
         return;
       }
-
-      console.log(data);
+      done(data);
     })
   }
 }

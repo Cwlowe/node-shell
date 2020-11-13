@@ -1,7 +1,6 @@
-module.exports = (cmd) => {
+module.exports = (cmd,done) => {
     if (cmd === 'pwd'){
-      console.log(process.cwd());
-      process.stdout.write("\nprompt > ");
+      done(process.cwd());
     }
 }
 
